@@ -14,8 +14,8 @@ def turn_on_tv(cast):
     cast.start_app("CC1AD845") # com.google.cast.media, the default mp4 player
     cast.quit_app()
 
-def play_video(url, cast, port=8000):
-    if not "http://" in url or "https://" in url:
+def play_video(url, filename, cast, port=8000):
+    if filename:
         # Finding local IP for url
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         s.connect((cast.host,8008))
@@ -38,6 +38,7 @@ def stop_video(cast):
 def main():
     casts = pychromecast.get_chromecasts_as_dict()
     parser = argparse.ArgumentParser(prog=__progname__)
+    parser.add_argument("--file", help="Filename of media to play")
     parser.add_argument("--url", help="URL of media to play. You should probably specify this if nothing else.")
 #    parser.add_argument("-p", "--pause", help="Pause playback", action='store_true')
     parser.add_argument("--power", help="Turn on TV and switch to Chromecast", action="store_true")
@@ -56,8 +57,8 @@ def main():
     if args.power:
         power_on_tv(cast)
         return
-    if args.url:
-        play_video(args.url, cast)
+    if args.url or args.file:
+        play_video(args.url, args.file, cast)
         return
 #    elif args.pause:
 #        pause_video(cast)

@@ -10,7 +10,7 @@ setup(
     entry_points = {
         "console_scripts": ['castctrl = castctrl.castctrl:main']
         },
-    version = "1.0.0",
+    version = "1.1.0",
     description = "A Python program to simplify casting video to a Chromecast",
     long_description = long_descr,
     author = "Steven Smith",
