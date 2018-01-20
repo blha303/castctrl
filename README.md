@@ -3,6 +3,8 @@ castctrl
 
 A Python program to simplify casting video to a Chromecast
 
+Note: Uses an old version of pychromecast. Please don't report issues to pychromecast, make an issue here instead.
+
 Usage
 -----
 
