@@ -6,11 +6,12 @@ with open("README.rst", "rb") as f:
 setup(
     name = "castctrl",
     packages = ["castctrl"],
-    install_requires = ['pychromecast'],
+    install_requires = ['pychromecast==0.7.9'],
+    dependency_links=["git+https://github.com/balloob/pychromecast@cda7a0c5ef804f5306be845f8ccbbc57f11e0421#egg=pychromecast-0.7.9"],
     entry_points = {
         "console_scripts": ['castctrl = castctrl.castctrl:main']
         },
-    version = "1.1.0",
+    version = "1.1.1",
     description = "A Python program to simplify casting video to a Chromecast",
     long_description = long_descr,
     author = "Steven Smith",
